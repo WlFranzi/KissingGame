@@ -13,32 +13,31 @@ class GameWindow < Gosu::Window
     super 480, 480
     self.caption = "Kiss the Frog Game"
     @background_image = Gosu::Image.new('media/background.jpg', :tileable => true)
-    @kisserin = Kisserin.new
-    @kisserin.warp(520, 240)
-    @pilz = Pilz.new
+    @kisserin = Kisserin.new(200, 200)
+    @pilze = Pilz.new
   end
 
   def update
     if Gosu::button_down? Gosu::KbLeft
-      then @kisserin.turn_left
+      @kisserin.turn_left
     end
     if Gosu::button_down? Gosu::KbRight
-      then @kisserin.turn_right
+      @kisserin.turn_right
     end
     if Gosu::button_down? Gosu::KbUp
-      then @kisserin.accelerate
+      @kisserin.accelerate
     end
-    # if Gosu::button_down? Gosu::KbUp
-    #   then @kisserin.deccelerate
-    # end
+    if Gosu::button_down? Gosu::KbDown
+      @kisserin.deccelerate
+    end
     @kisserin.move
   end
 
+
   def draw
-    @kisserin.draw
-    @pilz.draw
     @background_image.draw(0, 0, 0)
-    
+    @kisserin.draw
+    @pilze.draw
   end
 
   def button_down(id)
