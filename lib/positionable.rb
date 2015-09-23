@@ -1,17 +1,17 @@
 require 'forwardable'
 
-
-module Kisserin
+module Kiss
   module Positionable
     attr_reader :x, :y  
     alias :top :y
     alias :left :x
 
     extend Forwardable
-    def_delegator :@image, :height, :width
+
+    def_delegators :@image, :height, :width
 
     def bottom
-      y + height
+      y + height  
     end
 
     def right
