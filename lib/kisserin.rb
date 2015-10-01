@@ -2,9 +2,12 @@ require 'positionable'
 
 module Kiss
   class Kisserin
+    attr_reader :score
     include Positionable
     def initialize(x, y)
-      @image = Gosu::Image.new('media/kisserin.png')
+      @image = @image_right = Gosu::Image.new('media/kisserin.png')
+      @image_left = Gosu::Image.new('media/kisserin_flipped.png')
+      @image
       @x = x
       @y = y
       @score = 0
@@ -12,10 +15,12 @@ module Kiss
 
     def turn_left
       @x -= 3
+      @image = @image_right
     end
 
     def turn_right
       @x += 3
+      @image = @image_left
     end
 
     def accelerate
@@ -27,8 +32,8 @@ module Kiss
     end
 
     def  move
-      @x %= 480
-      @y %= 480
+      @x %= 800
+      @y %= 800
     end
 
     def collides?(pilz)
@@ -42,8 +47,16 @@ module Kiss
       @score
     end
 
+
+
+
+    def increment_score
+      @score += 1
+    end
+
+
     def draw
-      @image.draw(@x, @y, 1)
+      @image.draw(@x, @y, 1) if @score < 101
     end
   end
 end
