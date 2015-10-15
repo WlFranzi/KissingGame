@@ -47,13 +47,9 @@ module Kiss
       @score
     end
 
-
-
-
     def increment_score
       @score += 1
     end
-
 
     def draw
       @image.draw(@x, @y, 1) if @score < 101
