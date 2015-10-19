@@ -15,7 +15,8 @@ module Kiss
       @background_image = Gosu::Image.new('media/background.jpg', :tileable => true)
       @font = Gosu::Font.new(30)
       @font_over = Gosu::Font.new(60)
-      @kisserin = Kisserin.new(200, 200)
+      @kisserin = Kisserin.new(200, 200)      
+      @font_time = Gosu::Font.new(120)
       @pilze = [Pilz.new, Pilz.new]
       Gosu::Sample.new("media/happymusic.mp3").play
       @background_animation = Gosu::Image.new('media/really?.jpg', :tileable => true)
@@ -56,7 +57,7 @@ module Kiss
         @kisserin.draw 
         @pilze.each(&:draw)
         @font.draw("Score: #{@kisserin.score}", 10, 10,  ZOrder::UI, 1.0, 1.0, 0xffff00ff)
-        @font.draw("TickTack: #{time_passing}", 400, 30, ZOrder::UI, 1.0, 1.0, 0xffff00ff)
+        @font_time.draw("#{time_passing}", 400, 30, ZOrder::UI, 1.0, 1.0, 0xffff00ff)
       end
     end
 

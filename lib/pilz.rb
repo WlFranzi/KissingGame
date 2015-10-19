@@ -16,6 +16,7 @@ module Kiss
       return if kissed?
       @kissed = true
       @image = Gosu::Image.new('media/flower_power.png')
+      Gosu::Sample.new("media/kiss.mp3").play
       @scale = 0.0
       @z = 2
     end
