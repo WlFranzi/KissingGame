@@ -5,5 +5,5 @@
 # gewonnen anzeige -->
 
 
-# install ruby 
+# install ruby 2.2
 # run with ./exe/kiss
