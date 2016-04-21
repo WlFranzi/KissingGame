@@ -49,9 +49,12 @@ module Kiss
     end 
 
     def draw
-      if @game_over
+      if @game_over && @kisserin.score != 5
         @background_animation.draw_rot(400, 400, 1, @angle, 0.5, 0.5, 2, 2)
         @font_over.draw("GAME OVER - HAHA!", 110, 380, ZOrder::UI, 1.0, 1.0, 0xff_000000) if Time.now.to_i.even?
+      elsif @kisserin.score >= 5
+        @background_animation.draw_rot(400, 400, 1, @angle, 0.5, 0.5, 2, 2)
+        @font_over.draw("WOOOOOOON!", 210, 380, ZOrder::UI, 1.0, 1.0, 0xff_000000) if Time.now.to_i.even?
       else
         @background_image.draw(0, 0, 0) 
         @kisserin.draw 
