@@ -12,7 +12,7 @@ module Kiss
     def initialize
       super 800, 800
       self.caption = "Pilz - Kissing"
-      @background_image = Gosu::Image.new('media/background.jpg', :tileable => true)
+      @background_image = Gosu::Image.new('media/grass.jpg', :tileable => true)
       @font = Gosu::Font.new(30)
       @font_over = Gosu::Font.new(60)
       @kisserin = Kisserin.new(200, 200)      
