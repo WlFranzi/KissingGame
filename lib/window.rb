@@ -10,7 +10,7 @@ end
 module Kiss
   class GameWindow < Gosu::Window
     def initialize
-      super 800, 800
+      super 1000, 500
       self.caption = "Pilz - Kissing"
       @background_image = Gosu::Image.new('media/grass.jpg', :tileable => true)
       @font = Gosu::Font.new(30)
@@ -51,10 +51,10 @@ module Kiss
     def draw
       if @game_over && @kisserin.score != 5
         @background_animation.draw_rot(400, 400, 1, @angle, 0.5, 0.5, 2, 2)
-        @font_over.draw("GAME OVER - HAHA!", 110, 380, ZOrder::UI, 1.0, 1.0, 0xff_000000) if Time.now.to_i.even?
+        @font_over.draw("GAME OVER - try it again!", 110, 380, ZOrder::UI, 1.0, 1.0, 0xff_000000) if Time.now.to_i.even?
       elsif @kisserin.score >= 5
         @background_animation.draw_rot(400, 400, 1, @angle, 0.5, 0.5, 2, 2)
-        @font_over.draw("WOOOOOOON!", 210, 380, ZOrder::UI, 1.0, 1.0, 0xff_000000) if Time.now.to_i.even?
+        @font_over.draw("WOOOOOOON! Wooohoo", 210, 380, ZOrder::UI, 1.0, 1.0, 0xff_000000) if Time.now.to_i.even?
       else
         @background_image.draw(0, 0, 0) 
         @kisserin.draw 
